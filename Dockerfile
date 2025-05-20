@@ -1,0 +1,20 @@
+FROM maven:3.8.4-openjdk-17 AS build
+
+WORKDIR /demo
+
+COPY demo/pom.xml .
+RUN mvn dependency:go-offline
+
+COPY demo/src ./src
+RUN mvn clean package -DskipTests
+
+FROM openjdk:17-jdk-slim
+
+WORKDIR /demo
+
+COPY --from=build /demo/target/demo-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
+

@@ -4,7 +4,7 @@ spring:
   application:
     name: logistiq-masters
   datasource:
-    password: ${DB_PASSWORD:jhggh}
+    password: ${DB_PASSWORD:Playbold5434}
     url: ${DB_URL:jdbc:postgresql://localhost:5434/masters}
     username: ${DB_USERNAME:postgres}
   flyway:
@@ -21,3 +21,4 @@ spring:
         physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
   server:
     port: ${PORT:8080}
+
