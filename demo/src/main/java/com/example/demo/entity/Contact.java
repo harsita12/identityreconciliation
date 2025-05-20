@@ -3,7 +3,9 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -32,8 +34,9 @@ public class Contact {
     @Column(name = "linked_id")
     private Long linkedId;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(name = "link_precedence", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private LinkPrecedence linkPrecedence;
 
     @CreationTimestamp
