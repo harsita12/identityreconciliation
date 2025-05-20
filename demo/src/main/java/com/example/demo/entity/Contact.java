@@ -28,12 +28,8 @@ public class Contact {
     @Column(name = "email", length = 255)
     private String email;
 
-    /**
-     * points at the PRIMARY record when this is a secondary
-     */
     @Column(name = "linked_id")
     private Long linkedId;
-
 
     @Column(name = "link_precedence", nullable = false)
     @JdbcTypeCode(SqlTypes.NAMED_ENUM)
